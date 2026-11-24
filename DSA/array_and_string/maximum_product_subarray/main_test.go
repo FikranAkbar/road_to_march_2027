@@ -65,3 +65,14 @@ func TestMaximumProductSubarray(t *testing.T) {
 	}
 }
 
+// Same table, run against the O(n) implementation. Kept separate so a failure
+// names the implementation, not just the case.
+func TestMaximumProductSubarrayOptimum(t *testing.T) {
+	for _, c := range maxProdCases {
+		t.Run(c.name, func(t *testing.T) {
+			if got := maximumProductSubarrayOptimum(c.in); got != c.want {
+				t.Errorf("maximumProductSubarrayOptimum(%v) = %d, want %d", c.in, got, c.want)
+			}
+		})
+	}
+}
